@@ -1,0 +1,12 @@
+$.getJSON("google-books-search.json", function(data) {
+    $.each(data.items, function(index, item) {
+        let book = item.volumeInfo;
+        let bookHtml = `
+            <div class="book-entry">
+                <img src="${book.imageLinks.smallThumbnail}" alt="cover">
+                <h2>${book.title}</h2>
+                <p>${book.authors.join(", ")}</p>
+            </div>`;
+        $("#results-container").append(bookHtml);
+    });
+});
