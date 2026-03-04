@@ -1,49 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Book Details</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #eceff1; padding: 40px; }
-        .container { background: white; max-width: 800px; margin: 0 auto; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); display: flex; gap: 30px; }
-        .cover img { width: 220px; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-        .details { flex: 1; }
-        h1 { margin-top: 0; color: #2c3e50; }
-        .authors { font-size: 1.2em; color: #7f8c8d; margin-bottom: 15px; }
-        .description { line-height: 1.7; color: #34495e; font-size: 0.95em; }
-    </style>
-</head>
-<body>
-    <p><a href="index.html">← Back to Project Home</a></p>
-    
-    <div class="container" id="book-area">
-        <div class="cover">
-            <img id="book-img" src="" alt="Cover Image">
-        </div>
-        <div class="details">
-            <h1 id="book-title">Loading Title...</h1>
-            <p class="authors">By <span id="book-authors"></span></p>
-            <p><strong>Pages:</strong> <span id="book-pages"></span> | <strong>Published:</strong> <span id="book-date"></span></p>
-            <div class="description" id="book-desc"></div>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            // Updated path to match your Books.json file
-            $.getJSON("Books.json", function(data) {
-                const book = data.volumeInfo;
-                $("#book-title").text(book.title);
-                $("#book-authors").text(book.authors ? book.authors.join(", ") : "Unknown Author");
-                $("#book-pages").text(book.pageCount);
-                $("#book-date").text(book.publishedDate);
-                $("#book-desc").html(book.description);
-                $("#book-img").attr("src", book.imageLinks ? book.imageLinks.thumbnail : "https://via.placeholder.com/200x300");
-            }).fail(function() {
-                $("#book-title").text("Error: Could not load Books.json. Ensure file is in the same folder.");
-            });
-        });
-    </script>
-</body>
-</html>
+{
+  "kind": "books#volume",
+  "id": "zyTCAlS7f9cC",
+  "volumeInfo": {
+    "title": "The Art of Modern Web",
+    "authors": ["Jane Doe", "John Smith"],
+    "publisher": "Tech Press",
+    "publishedDate": "2023-05-15",
+    "description": "An in-depth guide to modern web development techniques, covering responsive design, JavaScript frameworks, and the future of the internet. This book is essential for anyone looking to master the digital landscape.",
+    "pageCount": 450,
+    "printType": "BOOK",
+    "categories": ["Computers / Web / Web Design"],
+    "imageLinks": {
+      "smallThumbnail": "http://books.google.com/books/content?id=zyTCAlS7f9cC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+      "thumbnail": "http://books.google.com/books/content?id=zyTCAlS7f9cC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+    },
+    "language": "en"
+  }
+}
