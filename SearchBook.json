@@ -1,12 +1,42 @@
-$.getJSON("google-books-search.json", function(data) {
-    $.each(data.items, function(index, item) {
-        let book = item.volumeInfo;
-        let bookHtml = `
-            <div class="book-entry">
-                <img src="${book.imageLinks.smallThumbnail}" alt="cover">
-                <h2>${book.title}</h2>
-                <p>${book.authors.join(", ")}</p>
-            </div>`;
-        $("#results-container").append(bookHtml);
-    });
-});
+{
+  "kind": "books#volumes",
+  "totalItems": 3,
+  "items": [
+    {
+      "id": "1",
+      "volumeInfo": {
+        "title": "Introduction to HTML5",
+        "authors": ["Mark Stevenson"],
+        "publishedDate": "2021",
+        "description": "The perfect starting point for learning semantic HTML and modern document structures.",
+        "imageLinks": {
+          "thumbnail": "https://via.placeholder.com/128x192?text=HTML5+Cover"
+        }
+      }
+    },
+    {
+      "id": "2",
+      "volumeInfo": {
+        "title": "Mastering CSS Grid",
+        "authors": ["Alice Johnson"],
+        "publishedDate": "2022",
+        "description": "Learn how to build complex, responsive layouts with ease using the power of CSS Grid.",
+        "imageLinks": {
+          "thumbnail": "https://via.placeholder.com/128x192?text=CSS+Grid+Cover"
+        }
+      }
+    },
+    {
+      "id": "3",
+      "volumeInfo": {
+        "title": "JavaScript: The Next Level",
+        "authors": ["David Weber", "Sarah Connor"],
+        "publishedDate": "2023",
+        "description": "Deep dive into asynchronous programming, ES6+ features, and modern JS architecture.",
+        "imageLinks": {
+          "thumbnail": "https://via.placeholder.com/128x192?text=JS+Next+Level"
+        }
+      }
+    }
+  ]
+}
